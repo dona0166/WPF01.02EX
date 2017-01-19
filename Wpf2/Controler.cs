@@ -6,56 +6,56 @@ using System.Threading.Tasks;
 
 namespace Wpf2
 {
-    class Controler
+    class Controller
     {
-        private static Controler instance;
+        private static Controller instance;
         private Repository repository;
-        public Person CurentPerson { get; private set; }
-        public int PerconCount { get; private set; }
+        public Person CurrentPerson { get; private set; }
+        public int PersonCount { get; private set; }
         public int PersonIndex { get; private set; }
 
-        private Controler()
+        private Controller()
         {
-            CurentPerson = null;
+            CurrentPerson = null;
             repository = new Repository();
-            PerconCount = 0;
+            PersonCount = 0;
             PersonIndex = -1;
         }
-        public static Controler GetInstance()
+        public static Controller GetInstance()
         {
             if (instance== null)
             {
-                instance = new Controler();
+                instance = new Controller();
             }
             return instance;
         }
 
-        public void AddPerson()
+        public void AddPerson(Person person)
         {
-            Person percon = new Person();
-            CurentPerson = percon;
-            repository.AddPerson(percon);
-            PerconCount = repository.PersonList.Count();
-            PersonIndex = PerconCount-1;
+            
+            CurrentPerson = person;
+            repository.AddPerson(person);
+            PersonCount = repository.PersonList.Count();
+            PersonIndex = PersonCount-1;
         }
 
         public void DeletePerson()
         {
-            if (CurentPerson != null)
+            if (CurrentPerson != null)
             {
-                repository.RemovePerson(CurentPerson);
+                repository.RemovePerson(CurrentPerson);
                 PersonIndex--;
-                PerconCount = repository.PersonList.Count();
-                CurentPerson = repository.GetPersonAtIndex(PersonIndex);
+                PersonCount = repository.PersonList.Count();
+                CurrentPerson = repository.GetPersonAtIndex(PersonIndex);
             }
         }
 
         public void NextPerson()
         {
-            if (PersonIndex < PerconCount - 1)
+            if (PersonIndex < PersonCount - 1)
             {
                 PersonIndex++;
-                CurentPerson = repository.GetPersonAtIndex(PersonIndex);
+                CurrentPerson = repository.GetPersonAtIndex(PersonIndex);
             }
         }
         public void PrevPerson()
@@ -63,7 +63,7 @@ namespace Wpf2
             if (PersonIndex > 0)
             {
                 PersonIndex--;
-                CurentPerson = repository.GetPersonAtIndex(PersonIndex);
+                CurrentPerson = repository.GetPersonAtIndex(PersonIndex);
             }
         }
 

@@ -15,6 +15,14 @@
         <Label x:Name="label1" Content="Last Name" HorizontalAlignment="Left" Margin="82,102,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Age" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="102,146,0,0"/>
         <Label x:Name="label3" Content="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="96,190,0,0"/>
+        <Label x:Name="label4" Content="Person Count" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="102,16,0,0"/>
+        <TextBlock x:Name="count" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="195,21,0,0"/>
+        <Label x:Name="label5" Content="Index" HorizontalAlignment="Left" Margin="226,16,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="index" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="283,21,0,0"><Run Text="1"/></TextBlock>
+        <Button x:Name="new" Content="New" HorizontalAlignment="Left" Margin="354,61,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="delete" Content="Delete" HorizontalAlignment="Left" Margin="354,93,0,0" VerticalAlignment="Top" Width="75" Click="delete_Click"/>
+        <Button x:Name="up" Content="Up" HorizontalAlignment="Left" Margin="354,125,0,0" VerticalAlignment="Top" Width="75" Click="up_Click"/>
+        <Button x:Name="down" Content="Down" HorizontalAlignment="Left" Margin="354,157,0,0" VerticalAlignment="Top" Width="75" Click="down_Click"/>
 
     </Grid>
 </Window>

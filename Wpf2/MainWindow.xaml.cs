@@ -20,11 +20,53 @@ namespace Wpf2
     /// </summary>
     public partial class MainWindow : Window
     {
-        Controler controler;
+        Controller controller;
+        
         public MainWindow()
         {
-            controler = Controler.GetInstance();
+            controller = Controller.GetInstance();
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            if(firstname.Text != "" && lastname.Text != "" && age.Text != "" && phone.Text != "")
+            {
+                controller.AddPerson(new Person(firstname.Text, lastname.Text, Int32.Parse(age.Text), phone.Text));
+                count.Text = controller.PersonCount.ToString();
+                index.Text = controller.PersonIndex.ToString();
+                
+            }
+            
+        }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+            controller.DeletePerson();
+            count.Text = controller.PersonCount.ToString();
+            index.Text = controller.PersonIndex.ToString();
+        }
+
+        private void up_Click(object sender, RoutedEventArgs e)
+        {
+            controller.NextPerson();
+            count.Text = controller.PersonCount.ToString();
+            index.Text = controller.PersonIndex.ToString();
+            firstname.Text = controller.CurrentPerson.FirstName;
+            lastname.Text = controller.CurrentPerson.LastName;
+            age.Text = controller.CurrentPerson.Age.ToString();
+            phone.Text = controller.CurrentPerson.TelephoneNr;
+        }
+
+        private void down_Click(object sender, RoutedEventArgs e)
+        {
+            controller.PrevPerson();
+            count.Text = controller.PersonCount.ToString();
+            index.Text = controller.PersonIndex.ToString();
+            firstname.Text = controller.CurrentPerson.FirstName;
+            lastname.Text = controller.CurrentPerson.LastName;
+            age.Text = controller.CurrentPerson.Age.ToString();
+            phone.Text = controller.CurrentPerson.TelephoneNr;
         }
     }
 }

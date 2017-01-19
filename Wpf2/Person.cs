@@ -12,5 +12,13 @@ namespace Wpf2
         public string LastName { get; set; }
         public int Age { get; set; }
         public string TelephoneNr { get; set; }
+
+        public Person(string firstname, string lastname, int age, string phone)
+        {
+            this.FirstName = firstname;
+            this.LastName = lastname;
+            this.Age = age;
+            this.TelephoneNr = phone;
+        }
     }
 }
